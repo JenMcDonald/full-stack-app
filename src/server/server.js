@@ -12,7 +12,7 @@ let app = express();
 app.listen(port, console.log("Server running, listening on port", port));
 
 app.get('/', (req, res) => {
-    res.send();
+    res.send("Hello World");
 });
 
 app.use(
