@@ -13,21 +13,23 @@ const TaskDetail = ({
     setTaskName,
     setTaskGroup
 }) => (
-    <div>
+    <div className="card p-3 col-6">
         <div>
-            <input onChange={setTaskName} value={task.name} />
+            <input onChange={setTaskName} value={task.name} className="form-control form-control-lg" />
         </div>
         <div>
-            <button onClick={() => setTaskCompletion(id, !isComplete)}> {isComplete ? `ReOpen` : `Complete`}</button>
+            <button className="btn btn-primary mt-2" onClick={() => setTaskCompletion(id, !isComplete)}> {isComplete ? `ReOpen` : `Complete`}</button>
         </div>
-        <select onChange={setTaskGroup} value={task.group}>
-            {groups.map(group => (
-                <option key={group.id} value={group.id}>{group.name}</option>
-            ))}
-        </select>
+        <div className="mt-3">
+            <select onChange={setTaskGroup} value={task.group} className="form-control">
+                {groups.map(group => (
+                    <option key={group.id} value={group.id}>{group.name}</option>
+                ))}
+            </select>
+        </div>
         <div>
             <Link to='/dashboard'>
-                <button>Done</button>
+                <button className="btn btn-primary mt-2">Done</button>
             </Link>
         </div>
     </div>
@@ -62,3 +64,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 export const ConnectedTaskDetail = connect(mapStateToProps, mapDispatchToProps)(TaskDetail)
+
