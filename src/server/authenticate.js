@@ -39,7 +39,7 @@ export const authenticationRoute = app => {
 
         authenticationTokens.push({
             token,
-            userID: user.ID
+            userID: user.id
         });
 
         let state = await assembleUserState(user);
