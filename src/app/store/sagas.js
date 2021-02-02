@@ -7,6 +7,8 @@ import { history } from './history';
 
 const url = process.env.NODE_ENV == `production` ? `` : "http://localhost:7777";
 
+//"mongodb+srv://USERNAME:PASSWORD@CLUSTER_NAME.n9z04.mongodb.net/DATABASE_NAME?retryWrites=true&w=majority"
+
 export function* taskCreationSaga() {
     while (true) {
         const { groupID } = yield take(mutations.REQUEST_TASK_CREATION);
